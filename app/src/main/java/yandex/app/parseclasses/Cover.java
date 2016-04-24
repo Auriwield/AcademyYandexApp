@@ -1,9 +1,8 @@
-package yandex.app;
+package yandex.app.parseclasses;
 
-/**
- * Created by Dinozavrik on 22.04.2016.
- */
-public class Cover {
+import java.io.Serializable;
+
+public class Cover implements Serializable{
     private String small;
     private String big;
 

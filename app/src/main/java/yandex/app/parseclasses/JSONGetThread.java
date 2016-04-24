@@ -1,4 +1,4 @@
-package yandex.app;
+package yandex.app.parseclasses;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,9 +6,6 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 
-/**
- * Created by Dinozavrik on 24.04.2016.
- */
 public class JSONGetThread extends Thread {
     public static final String JSON_HREF = "http://cache-spb10.cdn.yandex.net/download.cdn.yandex.net/mobilization-2016/artists.json";
     private String jsonStr = null;
@@ -20,7 +17,7 @@ public class JSONGetThread extends Thread {
             InputStreamReader inputStream = new InputStreamReader(connection.getInputStream());
             BufferedReader reader = new BufferedReader(inputStream);
 
-            String line = null;
+            String line;
             StringBuilder builder = new StringBuilder();
             while ((line = reader.readLine()) != null) {
                 builder.append(line);

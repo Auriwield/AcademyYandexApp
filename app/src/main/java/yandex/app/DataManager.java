@@ -8,12 +8,9 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-/**
- * Created by Dinozavrik on 22.04.2016.
- */
 public class DataManager {
 
-    public void storeJSON(Context context, String jsonStr) {
+    public static void storeJSON(Context context, String jsonStr) {
         final FileOutputStream output;
         String path = context.getFilesDir().getAbsoluteFile().toString() + "/data";
         File file = new File(path);
@@ -53,7 +50,7 @@ public class DataManager {
         }
     }
 
-    public String restoreJSON(Context context) {
+    public static String restoreJSON(Context context) {
         final FileInputStream input;
         final byte data[];
         String path = context.getFilesDir().getAbsoluteFile().toString() + "/data";

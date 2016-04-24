@@ -1,10 +1,12 @@
-package yandex.app;
+package yandex.app.parseclasses;
+
+import java.io.Serializable;
 
 /**
  * Created by Dinozavrik on 22.04.2016.
  */
 
-public class AutorItem {
+public class AuthorItem implements Serializable {
     private long id;
     private String name;
     private String[] genres;

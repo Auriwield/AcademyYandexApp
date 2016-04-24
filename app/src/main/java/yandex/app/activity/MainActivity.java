@@ -1,15 +1,22 @@
-package yandex.app;
+package yandex.app.activity;
 
-import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
-import android.support.v7.widget.Toolbar;
 
 import java.util.List;
 
+import yandex.app.parseclasses.AuthorItem;
+import yandex.app.CustomListAdapter;
+import yandex.app.parseclasses.JSONParser;
+import yandex.app.R;
+
 public class MainActivity extends AppCompatActivity {
+    public final static String EXTRA_MESSAGE = "com.metanit.eugene.helloapplication.MESSAGE";
     ListView list;
 
     @Override
@@ -18,21 +25,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
       //  Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
       //  setSupportActionBar(toolbar);
-        List<AutorItem> contentList = new JSONParser().parse();
+        List<AuthorItem> contentList = new JSONParser(this).parse();
         CustomListAdapter adapter = new CustomListAdapter(this, contentList);
         list = (ListView) findViewById(R.id.list);
         list.setAdapter(adapter);
 
-        /*list.setOnItemClickListener(new OnItemClickListener() {
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                // TODO Auto-generated method stub
-                String Slecteditem = itemname[+position];
-                Toast.makeText(getApplicationContext(), Slecteditem, Toast.LENGTH_SHORT).show();
-
+                // TODO Auto-generated method stub;
+                Intent intent = new Intent(view.getContext(), ScrollingActivity.class);
+                intent.putExtra(EXTRA_MESSAGE, position);
+                startActivity(intent);
             }
-        });*/
+        });
     }
+
 }
