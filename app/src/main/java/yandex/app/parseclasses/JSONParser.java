@@ -20,6 +20,7 @@ public class JSONParser {
 
     public List<AuthorItem> parse() {
         String jsonStr = DataManager.restoreJSON(context);
+
         if (jsonStr == null) {
             JSONGetThread thread = new JSONGetThread();
             thread.start();
